@@ -1,107 +1,396 @@
 <!doctype html>
 <html>
-    <head>
-        <title>SaiRam</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <style>
-           
-            a {
-                color:white;
-            }
-            .navbar-nav {
-                padding-right: 200px;
-            }
-            div.container{
-                padding-top:20px;
-            }
-            
-            .parallax { 
-                position:relative;
-    /* The image used */
-    background-image: url("images1.jpg");
 
-    /* Set a specific height */
-    height: 400px; 
+<head>
+    <title>SaiRam</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magic.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            $(".slide").owlCarousel({
+                pagination: false
+                , slideSpeed: 2500
+                , stopOnHover: true
+                , autoPlay: 3000
+                , items: 4
+                , singleItem: false
+                , itemsMobile: [550, 3]
+                , itemsDesktopSmall: [991, 4]
+                , transitionStyle: "fade"
+            , });
+            $(function () {
+                $('a[href*="#"]:not([href="#"])').click(function () {
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        if (target.length) {
+                            $('html, body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000);
+                            return false;
+                        }
+                    }
+                });
+            });
+            $("#house-keeping").click(function () {
+                removeAll();
+                $("#house-keeping").addClass("active");
+                $("#house-keeping-details").css("display", "block");
+                $("#house-keeping-details")
+            })
+            $("#guest-house").click(function () {
+                removeAll();
+                $("#guest-house").addClass("active");
+                $("#guest-house-details").css("display", "block");
+                $("#guest-house-details").addClass("magictime swashIn");
+            })
+            $("#office-support").click(function () {
+                removeAll();
+                $("#office-support").addClass("active");
+                $("#office-support-details").css("display", "block");
+                $("#office-support-details").addClass("magictime swashIn");
+            })
+            $("#lab-hospital").click(function () {
+                removeAll();
+                $("#lab-hospital").addClass("active");
+                $("#lab-hospital-details").css("display", "block");
+                $("#lab-hospital-details").addClass("magictime swashIn");
+            })
+            $("#landscaping").click(function () {
+                removeAll();
+                $("#landscaping").addClass("active");
+                $("#landscaping-details").css("display", "block");
+                $("#landscaping-details").addClass("magictime swashIn");
+            })
+            $("#pest-control").click(function () {
+                removeAll();
+                $("#pest-control").addClass("active");
+                $("#pest-control-details").css("display", "block");
+                $("#pest-control-details").addClass("magictime swashIn");
+            })
+            $("#contractual").click(function () {
+                removeAll();
+                $("#contractual").addClass("active");
+                $("#contractual-details").css("display", "block");
+                $("#contractual-details").addClass("magictime swashIn");
+            })
 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-            .center{
-                margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-                width: 50%; 
-  height: 0%;
-  min-width: 400px;
-  max-width: 400px;
-  padding: 40px;
+            function removeAll() {
+                $("#house-keeping").removeClass("active");
+                $("#guest-house").removeClass("active");
+                $("#office-support").removeClass("active");
+                $("#lab-hospital").removeClass("active");
+                $("#landscaping").removeClass("active");
+                $("#pest-control").removeClass("active");
+                $("#contractual").removeClass("active");
+                $("#house-keeping-details").css("display", "none");
+                $("#office-support-details").css("display", "none");
+                $("#guest-house-details").css("display", "none");
+                $("#lab-hospital-details").css("display", "none");
+                $("#landscaping-details").css("display", "none");
+                $("#pest-control-details").css("display", "none");
+                $("#contractual-details").css("display", "none");
             }
-            
-            
-        </style>
-    </head>
-    <body>
-  <nav class="navbar navbar-full navbar-fixed-top navbar-dark bg-primary">
-      <div class="nav-header">
-          <a class="navbar-brand" href="index.html">
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Open Sans', serif;
+        }
+        
+        a {
+            color: white;
+        }
+        
+        .navbar-nav {
+            padding-right: 200px;
+        }
+        
+        div.container {
+            padding-top: 20px;
+        }
+        
+        .parallax {
+            position: relative;
+            /* The image used */
+            /* Set a specific height */
+            height: 400px;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .parallax.home {
+            background-image: url("images1.jpg");
+        }
+        
+        .parallax.services {
+            height: 600px;
+            background-image: url("images2.jpg");
+        }
+        
+        .parallax.services:after {
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -o-filter: blur(5px);
+            -ms-filter: blur(5px);
+            filter: blur(5px);
+        }
+        
+        .center {
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 50%;
+            height: 0%;
+            min-width: 400px;
+            max-width: 600px;
+            padding: 40px;
+        }
+        
+        .border {
+            margin: 10px 0px;
+            padding: 5px;
+            border-radius: 7px;
+            border: 2px solid #337ab7;
+            background-color: transparent;
+        }
+        
+        .layer {
+            position: absolute;
+            width: 100%;
+            height: 600px;
+            z-index: 0;
+            background-color: #080d15;
+            opacity: .7;
+        }
+        
+        .box {
+            display: table-cell;
+            cursor: pointer;
+            margin: 10px;
+            height: 120px;
+            width: 180px;
+            color: white;
+            padding: 10px;
+            background-color: rgba(41, 122, 194, 0.6);
+            border-radius: 7px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 120px;
+            border: 1px solid #9DA4A6;
+            z-index: 2;
+            box-shadow: 0px 0px 4px 3px #ccc;
+        }
+        
+        .box.active {
+            background-color: rgba(7, 213, 44, 0.6);
+            color: azure;
+        }
+        
+        .hvr-grow {
+            display: inline-block;
+            vertical-align: middle;
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            transition-duration: 0.3s;
+            transition-property: transform;
+        }
+        
+        .hvr-grow:hover,
+        .hvr-grow:focus,
+        .hvr-grow:active {
+            transform: scale(1.1);
+        }
+        
+        .white {
+            color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-full navbar-fixed-top navbar-dark bg-primary">
+        <div class="nav-header pull-left"> <a class="navbar-brand" href="index.html">
           SaiRam Facility & Management Services
-          </a>
-      </div>
-    <div class="pull-right">
-        <ul class="nav navbar-nav">
-            <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">About Us</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Services</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Clients</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Gallery</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">Contact Us</a> </li>
-        </ul>
-    </div>
-</nav>
-        
-<div class="parallax">
-    <div class="center">
-    <div class="row">
-        <div class="col-lg-10 col-lg-offset-1 col-md-6 col-md-offset-3">
-            <a class="btn btn-primary">Click Me!</a>
-            <span style="margin-right:20px"><a class="btn btn-primary">Don't Click!</a></span>
-            
+          </a> </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="nav-item active"> <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#aboutus">About Us</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#services">Services</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#">Clients</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#">Gallery</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#">Contact Us</a> </li>
+            </ul>
         </div>
-    </div>
-    </div>
-</div>        
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="jumbotron">
-                <h2>SiaRam Faility & Management Service</h2>
-                <p>Hello there, and welcome to our website. This website will you guide you through the entire service what you 
-                    ought to present you.
-                </p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="well">
-                <h3>This is the well </h3>
-                <p>This is the panel where the extra stuff goes.</p>
+    </nav>
+    <div id="home" class="parallax home">
+        <div class="center">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-6 col-md-offset-3">
+                    <div class="border">No way around the world you will find service like this.</div> <a class="btn btn-outline-danger">Click Me!</a> <span style="margin-right:20px"><a class="btn btn-outline-primary">Don't Click!</a></span> </div>
             </div>
         </div>
     </div>
-    
-    <div class="row">
-        <div class="col-md-8">
-         <div class="page-header">
-             <h3>Who are we?</h3>
-             <p>
-SaiRam is a Facility Management Services Company, a leading Service provider of Integrated Facility management services with proven expertise. SaiRam provides clients with a wide range of services including management, planning, scheduling, executing and quality assurance of the facility management. To meet the ever-changing maintenance and facility needs, SaiRam facility management solutions based on time and cost optimization without compromising quality. We cater to the Software, Telecom, Finance, Healthcare, Government, Energy sector, manufacturing sector etc. SaiRam has a unique delivery model, an organization structure that practices customer satisfaction at every level and commitment to quality that delivers compelling business value. Our Motto is 'utmost customer satisfaction through Comprehensive facility management services at a single contact point' The Delivery Model, a powerful management structure, proven track record with different industries, customer-focused project management based on highest quality processing, differentiates business at SaiRam. We work hard to ensure that the services are not only the best available in terms of performance and quality, but also cost effective in the competitive market.</p>
+    <div class="container" id="aboutus">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="jumbotron">
+                    <h2>SiaRam Facility & Management Service</h2>
+                    <p>Hello there, and welcome to our website. This website will you guide you through the entire service what you ought to present you. </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="well">
+                    <h3>This is the well </h3>
+                    <p>This is the panel where the extra stuff goes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="page-header">
+                    <h3>Who are we?</h3>
+                    <p> SaiRam is a Facility Management Services Company, a leading Service provider of Integrated Facility management services with proven expertise. SaiRam provides clients with a wide range of services including management, planning, scheduling, executing and quality assurance of the facility management. To meet the ever-changing maintenance and facility needs, SaiRam facility management solutions based on time and cost optimization without compromising quality. We cater to the Software, Telecom, Finance, Healthcare, Government, Energy sector, manufacturing sector etc. SaiRam has a unique delivery model, an organization structure that practices customer satisfaction at every level and commitment to quality that delivers compelling business value. Our Motto is 'utmost customer satisfaction through Comprehensive facility management services at a single contact point' The Delivery Model, a powerful management structure, proven track record with different industries, customer-focused project management based on highest quality processing, differentiates business at SaiRam. We work hard to ensure that the services are not only the best available in terms of performance and quality, but also cost effective in the competitive market.</p>
+                </div>
             </div>
         </div>
     </div>
-        </div>  
-        
+    <div id="services" class="parallax services">
+        <div class="layer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="slide">
+                        <div id="house-keeping" class="box hvr-grow active">
+                            <h4>HOUSEKEEPING SERVICES</h4> </div>
+                        <div id="guest-house" class="box hvr-grow">
+                            <h4>GUEST HOUSE CARE TAKING AND PANTRY SERVICES
+                    </h4> </div>
+                        <div id="office-support" class="box hvr-grow">
+                            <h4>OFFICE SUPPORT SERVICE AND  MAINTENANCE</h4> </div>
+                        <div id="lab-hospital" class="box hvr-grow">
+                            <h4>LAB AND HOSPITAL SUPPORT SERVICES</h4> </div>
+                        <div id="landscaping" class="box hvr-grow">
+                            <h4>LANDSCAPING AND GARDEN  MAINTENANCE</h4> </div>
+                        <div id="pest-control" class="box hvr-grow">
+                            <h4>PEST CONTROL</h4> </div>
+                        <div id="contractual" class="box hvr-grow">
+                            <h4>CONTRACTUAL MANPOWER</h4> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="white">
+                        <div id="house-keeping-details">
+                            <div class="page-header">
+                                <h3>HouseKeeping</h3> </div>
+                            <p> House Keeping Services INTRODUCTION TO HOUSEKEEPING Every house, whether private, like yours, or commercial like offices, shops, hotels, hospitals, clubs, etc., needs to be kept clean and tidy, so that it looks inviting to all. This is where housekeeping comes in. Cleaning and maintenance services can be spotted very easily anywhere. The basic concept of housekeeping has started from keeping a domestic house clean and has gradually come to maintaining high standards of cleanliness and maintenance at commercial levels. Besides this, housekeeping should also contribute to the saving in costs of labour, cleaning material and equipment, furnishings and the like in every type of establishment.</p>
+                            <ul>
+                                <li>Daily cleaning of premises Carpet Cleaning.</li>
+                                <li>Immaculate cleaning of windows ,glasses with the most advanced cleaning method.</li>
+                                <li> Sanitary services with most disinfectant chemicals. </li>
+                                <li>Facade cleaning that gives a gleam to your exteriors.</li>
+                                <li> Outside yard/tiled area cleaning by using pressure wash machines.</li>
+                                <li> Deep cleaning.</li>
+                                <li>Cleaning of hoardings / Bank ATM Counters.</li>
+                                <li> Cleaning of water tanks.</li>
+                            </ul>
+                            <p>All these cleaning works are done without any interruption or inconvenience caused to the Customers / Visitors / Guests. We have the most advance Machinery /Equipment for executing in these cleaning activities and with reputed housekeeping consumable and chemical </p>
+                        </div>
+                        <div id="guest-house-details" style="display:none;">
+                            <div class="page-header">
+                                <h3>Guest House Care Taking and Pantry Services </h3></div>
+                            <p> Our pantry services include serving of tea and snacks to our customers. We also manage customers guest house, where our staff is placed 24 hours a day, he does the daily cleaning, arranging of plates, does errand jobs for the guest, thus manages the guest house, making the long guest stay comfortable.</p>
+                            <ul>
+                                <li> Pantry boy should be Always well – groomed example proper shaved proper pantry boy uniform, hand gloves, daily bath & should not sweat.</li>
+                                <li> The Pantry Boys will do the pantry job i.e. Preparation of tea & coffee and serve the same to Manager level staff, office staff.</li>
+                                <li>Always they have to serve on left hand position.</li>
+                                <li>The pantry boy will ensure coffee & tea he should be served water.</li>
+                                <li>The pantry boy will review of performance of the services to ensure clean pantries.</li>
+                                <li>The pantry boy will review of performance of the services to ensure clean pantries.</li>
+                                <li>Proper monitoring of stocks and regular re-filling of supplies.</li>
+                            </ul>
+                            <p> </p>
+                        </div>
+                        <div id="office-support-details" style="display:none">
+                            <div class="page-header">
+                                <h3>Office Support Service and Maintenance</h3> </div>
+                            <ul>
+                                <li>Office Boy</li>
+                                <p>Provide support to all officers and assist them in performance of their official duties. He will play a crucial role in assisting with the management and the staffs. He will be responsible for Xerox, documents filing, going to bank work’s e.g. (Deposits, Chillan’s) maintain cleanliness of office equipment and furniture. Any other related work will be posted by the concerned dept.</p>
+                                <li>Dispatch Boy</li>
+                                <p>
+                                    <ul>
+                                        <li>Coordination with the courier office and post office for dispatch of the clients documents on regular basis. </li>
+                                        <li>Proper usage of stationary related to courier.</li>
+                                        <li>Collection and delivering of documents from/to the clients to the respective destination.</li>
+                                        <li>Use and maintenance of client’s equipments as instructed.</li>
+                                        <li>Respond to calls from facility departments requesting immediate assistance for mail/courier problems.</li>
+                                        <li>Have necessary stock and tools in order to perform all mailroom activities.</li>
+                                    </ul>
+                                </p>
+                            </ul>
+                        </div>
+                        <div id="lab-hospital-details" style="display:none">
+                            <div class="page-header">
+                                <h3>Lab and Hospital Support Services</h3> </div>
+                            <p>Housekeeping is a very critical function in hospitals. This issue we bring you a variety of articles which can add values to managing this important aspect within your hospital. The main functions of housekeeping is overall cleanliness, ensuring maintenance of the building and its infrastructure, linen management, waste management, pest control, infection control, safety and security of the patients as well as the infrastructure and interior decoration. All this ensures the ambience promotes a healing environment. We Provide young and trained personnel, having full awareness of Health Management System and cleaning procedures for Hospitals. Media preparation, glassware’s autoclaving, washing, rinsing and drying. Sterilization of media, cotton plugging and aluminium/brown paper wrapping. Providing cleaned glassware for tissue culture work RNA / DNA work and maintaining aseptic lab. </p>
+                        </div>
+                        <div id="landscaping-details" style="display:none">
+                            <div class="page-header">
+                                <h3>Landscaping and Garden Maintenance</h3> </div>
+                            <ul>
+                                <li>Green House know- how Nursery & Management. </li>
+                                <li>Gardening, Landscape designing & Floriculture. </li>
+                                <li>Afforestation & Green belt development.</li>
+                                <li>Maintenance of lawn hedges, creepers, flower beds, trees, including daily watering, application of regular area/ fertilizer / pesticides / pruning, trimming etc. </li>
+                                <li>Garden maintenance by trained personnel. </li>
+                                <li>Landscaping and Horticultural resources for garden. Landscaping small projects. </li>
+                            </ul>
+                            <p>All these cleaning works are done without any interruption or inconvenience caused to the Customers / Visitors / Guests. We have the most advance Machinery /Equipment for executing in these cleaning activities and with reputed housekeeping consumable and chemical</p>
+                        </div>
+                        <div id="pest-control-details" style="display:none">
+                            <div class="page-header">
+                                <h3>Pest Control</h3> </div>
+                            <p>We offer outstanding Pest Control Service used for controlling and prevention of pests in homes and commercial establishments. Our pest control service providers identify the type of pests as well as insects and accordingly use superior quality pesticide which is highly effective. We offer wide range of services as Cockroach control service, Rodent control service, Termite control service, Bed- bug control service, Wood borer control service and General pest control service. Our areas of application include warehouses, commercial complex, residence, hotels, resorts, manufacturing units, restaurants and offices. </p>
+                            <ul>
+                                <li>General Disinfection Treatment</li>
+                                <li>Termite Control</li>
+                                <li>Rodent Control</li>
+                                <li>Honey Bee Treatment</li>
+                                <li>Fly And Mosquito Control</li>
+                                <li>Bed Bugs Treatment</li>
+                            </ul>
+                            <p>All these cleaning works are done without any interruption or inconvenience caused to the Customers / Visitors / Guests. We have the most advance Machinery /Equipment for executing in these cleaning activities and with reputed housekeeping consumable and chemical</p>
+                        </div>
+                        <div id="contractual-details" style="display:none">
+                            <div class="page-header">
+                                <h3>Contractual Manpower</h3> </div>
+                            <p>Our company specializes in offering our customers with Unskilled Workers that meets the specific and variegated requirements of our customers. These workers are recruited based on their skills and experience. Moreover, they possess rich industry experience in the respective domains of operation. We conduct thorough training sessions via which they can execute the assigned tasks in an efficient manner. Also, we ensure that the services are timely executed and we offer them at cost effective prices. We professionally supply contractual manpower in non-managerial categories as per requirement on ongoing basis and on project basis. We are providing supporting staff as per Clients requirements. Our H R Team interviews and short list candidates as per the requirement of the clients. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row"> </div>
 </body>
+
 </html>
